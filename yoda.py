@@ -7,10 +7,11 @@ address = []
 locations = ["custom location", "micro club", "tokyo", "yokohama", "algiers", "usthb"]
 answer = ""
 tip = "Baby Yoda on a trip!"
-restart = "yes"
+restart='yes'
+float 
 # intro
 print("Greetings!\nThis is a basic web map app you can use to spawn map in precise locations.\n Take baby Yoda on a trip!")
-while restart == "yes":
+while(restart=='yes'):
 # asking for user's input from the displayed destination list
   while answer not in locations:
     answer = input("pick a location from the list or choose custom location: {}\n".format(locations, sep = ",") + "\n >>  ")
@@ -50,8 +51,7 @@ while restart == "yes":
 # openning the generatd map in default browser
   time.sleep(1)
   webbrowser.open_new_tab('map.html')
-
-  input("wanna go somewhere else? \n")
-  restart = input("")
+  restart = input("wanna go somewhere else? \n")
+  answer=""
   if not restart == "yes":
     break
