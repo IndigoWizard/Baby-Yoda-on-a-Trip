@@ -4,6 +4,8 @@ import time
 import requests
 import geopy
 from geopy.geocoders import Nominatim
+from folium.plugins import MiniMap
+
 
 tip = "Baby Yoda on a trip!"
 answer = ""
@@ -25,6 +27,15 @@ while (restart=="yes"):
 	# adding a marker in that same location
 	avatar = folium.features.CustomIcon('BabyYodaSprite.gif', icon_size=(64, 64))
 	folium.Marker(location=address, tooltip=tip, icon=avatar).add_to(m)
+  
+  # adding a mini map
+  minM = MiniMap(zoom_start=15, toggle_display = True, tile_layer='CartoDB dark_matter', width=150, height=150 ).add_to(m)
+
+  # adding extra tile layers
+  folium.TileLayer('stamenwatercolor').add_to(m)
+  folium.TileLayer('stamentoner').add_to(m)
+  folium.LayerControl().add_to(m)
+
 
 	#saving the map as an html fiel in the same app folder
 	m.save('map.html')
